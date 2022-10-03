@@ -28,3 +28,31 @@ pub fn fetch_grid_from_file(path: &str) -> Grid<char> {
 
     grid
 }
+
+pub fn fetch_char_vecs_from_file(path: &str) -> Vec<Vec<char>> {
+    io::BufReader::new(File::open(path).unwrap())
+        .lines()
+        .map(|line| line.unwrap().chars().collect_vec())
+        .collect()
+}
+
+pub fn fetch_char_groups_from_file(path: &str) -> Vec<Vec<Vec<char>>> {
+    let lines = fetch_char_vecs_from_file(path);
+    let mut current_group: Vec<Vec<char>> = Vec::new();
+    let mut groups: Vec<Vec<Vec<char>>> = Vec::new();
+
+    for line in lines {
+        if line.len() == 0 {
+            groups.push(current_group);
+            current_group = Vec::new();
+        } else {
+            current_group.push(line);
+        }
+    }
+
+    if current_group.len() > 0 {
+        groups.push(current_group);
+    }
+
+    groups
+}

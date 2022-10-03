@@ -13,6 +13,9 @@ fn main() {
             "1" => solutions::day1::solve_day_1(),
             "2" => solutions::day2::solve_day_2(),
             "3" => solutions::day3::solve_day_3(),
+            "4" => solutions::day4::solve_day_4(),
+            "5" => solutions::day5::solve_day_5(),
+            "6" => solutions::day6::solve_day_6(),
             _ => println!("Invalid arguments: {}", args[0])
         }
     }

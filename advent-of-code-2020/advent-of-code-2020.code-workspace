@@ -4,5 +4,5 @@
 			"path": "."
 		}
 	],
-	"settings": {"rust-analyzer.runnables.cargoExtraArgs": ["3"]}
+	"settings": {"rust-analyzer.runnables.cargoExtraArgs": ["6"]}
 }
